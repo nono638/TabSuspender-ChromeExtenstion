@@ -5,6 +5,8 @@ Automatically suspend idle tabs to reduce memory usage and speed up Chrome. Perf
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/YOUR_EXTENSION_ID?label=Chrome%20Web%20Store)](https://chrome.google.com/webstore/detail/YOUR_EXTENSION_ID)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+https://sites.google.com/view/tabsuspender/home
+
 ## ✨ Features
 
 - **Automatic Tab Suspension** - Tabs automatically suspend after your chosen idle time (default 5 minutes)
@@ -97,7 +99,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you find this extension helpful, consider buying me a coffee!
 
-[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Support-yellow?style=for-the-badge&logo=buy-me-a-coffee)](https://buymeacoffee.com/YOUR_USERNAME)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Support-yellow?style=for-the-badge&logo=buy-me-a-coffee)](https://buymeacoffee.com/NoahCollin)
 
 ## 📊 Permissions Explained
 
@@ -116,8 +118,7 @@ None currently! Please report any issues on the [Issues page](https://github.com
 
 ## 📞 Contact
 
-- **Issues**: [GitHub Issues](https://github.com/YOUR_USERNAME/intelligent-tab-suspender/issues)
-- **Email**: your.email@example.com
+- **Issues**: [GitHub Issues](https://github.com/nono638/intelligent-tab-suspender/issues)
 
 ---
 
