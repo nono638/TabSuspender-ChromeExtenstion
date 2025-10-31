@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intelligent Tab Suspender</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <div class="header">
+      <h1>🌙 Tab Suspender</h1>
+      <p class="subtitle">Intelligent memory management</p>
+    </div>
+
+    <!-- Memory Stats -->
+    <div class="stats-section">
+      <div class="memory-display">
+        <div class="memory-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="4" width="12" height="16" rx="1" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="8" y1="7" x2="8" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10.5" y1="7" x2="10.5" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="13" y1="7" x2="13" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="15.5" y1="7" x2="15.5" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <rect x="7" y="11" width="10" height="7" rx="0.5" fill="currentColor" opacity="0.2"/>
+            <line x1="4" y1="8" x2="6" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4" y1="12" x2="6" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4" y1="16" x2="6" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="18" y1="8" x2="20" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="18" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="18" y1="16" x2="20" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        
+        <div class="memory-info">
+          <div class="memory-stats">
+            <span class="memory-percent" id="memoryPercent">--%</span>
+            <span class="memory-label">Memory Used</span>
+          </div>
+          
+          <div class="memory-bar-container">
+            <div class="memory-bar" id="memoryBar"></div>
+          </div>
+          
+          <div class="memory-details">
+            <span id="usedMemory">-- GB</span> / <span id="totalMemory">-- GB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Suspended Tabs Info -->
+    <div class="suspended-info">
+      <span class="suspended-icon">😴</span>
+      <span id="suspendedCount">0</span> tabs currently suspended
+    </div>
+
+    <!-- Current Tab Controls -->
+    <div class="section">
+      <h3>Current Tab</h3>
+      <div class="current-tab-info" id="currentTabInfo">
+        <div class="tab-title" id="currentTabTitle">Loading...</div>
+        <div class="tab-url" id="currentTabUrl">about:blank</div>
+      </div>
+      
+      <button id="whitelistBtn" class="btn btn-secondary">
+        <span id="whitelistIcon">➕</span>
+        <span id="whitelistText">Add to Whitelist</span>
+      </button>
+    </div>
+
+    <!-- Settings -->
+    <div class="section">
+      <h3>Settings</h3>
+      
+      <div class="setting-item">
+        <label for="suspensionTime">Suspend after idle time (minutes):</label>
+        <input type="number" id="suspensionTime" class="input-number" min="1" max="6000" value="5" placeholder="5">
+        <div id="timerWarning" class="warning-message" style="display: none;"></div>
+      </div>
+    </div>
+
+    <!-- Whitelist Management -->
+    <div class="section">
+      <div class="section-header">
+        <h3>Whitelist</h3>
+        <button id="toggleWhitelist" class="btn-link">Show</button>
+      </div>
+      
+      <div id="whitelistSection" class="whitelist-section" style="display: none;">
+        <p class="help-text">Whitelisted sites will never be suspended</p>
+        <div id="whitelistList" class="whitelist-list">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Buy Me a Coffee -->
+    <div class="coffee-banner">
+      <div class="coffee-icon">☕</div>
+      <div class="coffee-content">
+        <div class="coffee-title">Enjoying this extension?</div>
+        <div class="coffee-text">Support development with a coffee!</div>
+      </div>
+      <button id="coffeeBtn" class="btn btn-coffee">Buy Me a Coffee</button>
+    </div>
+
+    <!-- Custom Rules (Advanced) -->
+    <div class="section">
+      <div class="section-header">
+        <h3>Custom Rules</h3>
+        <button id="toggleRules" class="btn-link">Show</button>
+      </div>
+      
+      <div id="rulesSection" class="rules-section" style="display: none;">
+        <p class="help-text">Set custom suspension times for specific domains</p>
+        
+        <div class="rule-add">
+          <input type="text" id="ruleDomain" class="input-text" placeholder="example.com">
+          <input type="number" id="ruleMinutes" class="input-number-small" min="1" max="6000" placeholder="Minutes">
+          <button id="addRuleBtn" class="btn btn-secondary btn-small">Add Rule</button>
+        </div>
+        
+        <div id="rulesList" class="rules-list">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <a href="#" id="helpLink" class="footer-link">Help</a>
+      <span class="separator">•</span>
+      <a href="#" id="settingsLink" class="footer-link">Settings</a>
+      <span class="separator">•</span>
+      <span class="version">v1.0.0</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

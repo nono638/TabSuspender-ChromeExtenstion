@@ -1,0 +1,180 @@
+═══════════════════════════════════════════════════════════════
+     HOW TO UPLOAD TO GITHUB - STEP BY STEP
+═══════════════════════════════════════════════════════════════
+
+📦 WHAT TO UPLOAD
+═══════════════════════════════════════════════════════════════
+
+FROM YOUR COMPUTER:
+1. All files from the tab-suspender/ folder EXCEPT generate-icons.js
+2. The LICENSE file (download from outputs)
+3. The README.md file (download from outputs)
+
+FILE STRUCTURE ON GITHUB:
+intelligent-tab-suspender/
+├── LICENSE                    ← New file
+├── README.md                  ← New file
+├── manifest.json
+├── background.js
+├── content.js
+├── popup.html
+├── popup.js
+├── popup.css
+├── suspended.html
+├── suspended.js
+├── icons/
+│   ├── icon16.png
+│   ├── icon32.png
+│   ├── icon48.png
+│   ├── icon128.png
+│   └── icon.svg
+└── modules/
+    ├── memory-tracker.js
+    ├── suspension-engine.js
+    ├── tab-state-manager.js
+    └── whitelist-manager.js
+
+═══════════════════════════════════════════════════════════════
+
+📝 STEP-BY-STEP INSTRUCTIONS
+═══════════════════════════════════════════════════════════════
+
+METHOD 1: UPLOAD VIA GITHUB WEBSITE (EASIEST)
+
+1. Go to your blank GitHub repo
+
+2. Click "uploading an existing file"
+
+3. Download these 3 files from Claude:
+   - LICENSE (no extension)
+   - README.md
+   - All tab-suspender files EXCEPT generate-icons.js
+
+4. Edit the LICENSE file:
+   - Change [Your Name] to your actual name
+   - Save it
+
+5. Edit the README.md file:
+   - Replace YOUR_USERNAME with your GitHub username
+   - Replace YOUR_EXTENSION_ID with extension ID (get after publishing)
+   - Replace your.email@example.com with your email
+   - Save it
+
+6. Drag and drop ALL files into GitHub
+   - Maintain folder structure (icons/, modules/)
+   - Make sure LICENSE and README.md are in root
+
+7. Add commit message: "Initial commit - Intelligent Tab Suspender v1.6.2"
+
+8. Click "Commit changes"
+
+═══════════════════════════════════════════════════════════════
+
+METHOD 2: UPLOAD VIA GIT COMMAND LINE
+
+1. Download all files to a folder on your computer
+
+2. Open terminal/command prompt in that folder
+
+3. Run these commands:
+   git init
+   git add .
+   git commit -m "Initial commit - Intelligent Tab Suspender v1.6.2"
+   git branch -M main
+   git remote add origin https://github.com/YOUR_USERNAME/intelligent-tab-suspender.git
+   git push -u origin main
+
+4. Enter your GitHub credentials when prompted
+
+═══════════════════════════════════════════════════════════════
+
+✏️ FILES TO CUSTOMIZE BEFORE UPLOADING
+═══════════════════════════════════════════════════════════════
+
+1. LICENSE
+   Line 3: Change [Your Name] to your actual name
+
+2. README.md
+   - Line 5: Replace YOUR_EXTENSION_ID (twice)
+   - Line 15: Replace YOUR_EXTENSION_ID
+   - Line 19: Replace YOUR_USERNAME
+   - Line 76: Replace YOUR_USERNAME
+   - Line 92: Replace YOUR_USERNAME
+   - Line 106: Replace your.email@example.com
+
+═══════════════════════════════════════════════════════════════
+
+🎯 AFTER UPLOAD
+═══════════════════════════════════════════════════════════════
+
+Your repo will be live at:
+https://github.com/YOUR_USERNAME/intelligent-tab-suspender
+
+THEN:
+1. Get your extension published on Chrome Web Store
+2. Get the extension ID from the store URL
+3. Go back to GitHub and edit README.md
+4. Replace YOUR_EXTENSION_ID with actual ID
+5. Commit the change
+
+EXTENSION ID LOCATION:
+After publishing, your store URL will be:
+https://chrome.google.com/webstore/detail/EXTENSION_ID_HERE
+
+Copy the EXTENSION_ID_HERE part and use it in README.md
+
+═══════════════════════════════════════════════════════════════
+
+🎉 UPDATE YOUR CHROME WEB STORE LISTING
+═══════════════════════════════════════════════════════════════
+
+After uploading to GitHub:
+
+1. Go back to Chrome Web Store Developer Dashboard
+
+2. Edit your extension listing
+
+3. Add to description:
+   "• Open source - View code on GitHub: 
+    https://github.com/YOUR_USERNAME/intelligent-tab-suspender"
+
+4. Save changes
+
+═══════════════════════════════════════════════════════════════
+
+💡 WHAT IS MIT LICENSE?
+═══════════════════════════════════════════════════════════════
+
+The MIT License is a permissive open source license that:
+
+ALLOWS:
+✓ Anyone can use your code
+✓ Anyone can modify your code
+✓ Anyone can distribute your code
+✓ Anyone can use it commercially
+
+REQUIRES:
+✓ They must include your copyright notice
+✓ They must include the MIT license text
+
+PROTECTS YOU:
+✓ No warranty - you're not liable if something breaks
+✓ No responsibility for issues
+
+This is the most popular license for browser extensions!
+
+═══════════════════════════════════════════════════════════════
+
+✅ CHECKLIST
+═══════════════════════════════════════════════════════════════
+
+☐ Downloaded LICENSE file
+☐ Downloaded README.md file
+☐ Downloaded all tab-suspender files (except generate-icons.js)
+☐ Edited LICENSE: Changed [Your Name] to your name
+☐ Edited README.md: Changed all YOUR_USERNAME placeholders
+☐ Uploaded all files to GitHub maintaining folder structure
+☐ Verified repo looks correct on GitHub
+☐ Will update README.md with extension ID after publishing
+
+═══════════════════════════════════════════════════════════════
